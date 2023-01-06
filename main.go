@@ -37,7 +37,7 @@ func main() {
 	var runHealthcheck bool
 	var versionFlag bool
 
-	flag.BoolVar(&versionFlag, "version", false, "Print the version and exit")
+	//flag.BoolVar(&versionFlag, "version", false, "Print the version and exit")
 	flag.BoolVar(&runHealthcheck,
 		"run-healthcheck",
 		false,
@@ -45,7 +45,7 @@ func main() {
 
 	flag.Parse()
 
-	printVersion()
+	//printVersion()
 
 	if versionFlag {
 		return
@@ -71,6 +71,7 @@ func main() {
 	// baseFunctionHandler is the function invoker without any other middlewares.
 	// It is used to provide a generic way to implement the readiness checks regardless
 	// of the request mode.
+	// 入口函数
 	baseFunctionHandler := buildRequestHandler(watchdogConfig, watchdogConfig.PrefixLogs)
 	requestHandler := baseFunctionHandler
 
