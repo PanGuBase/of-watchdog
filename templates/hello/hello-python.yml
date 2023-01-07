@@ -4,8 +4,8 @@ provider:
   gateway: http://127.0.0.1:8080
 functions:
   hello-python:
-    lang: python
+    lang: python3
     handler: ./hello-python
-    image: registry.cn-shanghai.aliyuncs.com/vpnbook/github:latest-eefeb9d-eefeb9d
+    image: registry.cn-shanghai.aliyuncs.com/vpnbook/github:latest
     secrets:
       - codeup-registry

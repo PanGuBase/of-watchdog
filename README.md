@@ -40,6 +40,9 @@ brew install faas-cli
    apisix集成：
    raspberry-pi集成：可以直接 shell或者 python2.7
    收集群控：sekiro+rust+k3s
+
+5. 定时任务
+   https://docs.openfaas.com/reference/cron/
 ```
 
 ![](doc/img.png)
@@ -67,7 +70,7 @@ faas-cli list --gateway http://127.0.0.1:9999
 # 生成新函数
 faas-cli new --lang python hello-python
 # 本地构建
-faas-cli build -f ./hello-python.yml --tag sha --build-arg platform=linux/amd64
+faas-cli build -f ./hello-python.yml --tag sha
 # push到远程  注意这里需要登录远程 docker (You must provide a username or registry prefix to the Function's image such as user1/function1)
 docker login --username=sdga****@qq.com registry.cn-shanghai.aliyuncs.com
 faas-cli push -f ./hello-python.yml
@@ -75,6 +78,10 @@ faas-cli push -f ./hello-python.yml
 faas-cli deploy -f ./hello-python.yml  --gateway http://127.0.0.1:9999
 # 删除函数
 faas remove hello-python --gateway http://127.0.0.1:9999
+# 模版
+模版可以自定义 template
+# 测试
+docker run -dti -p 5671:8080 --name test_func registry.cn-shanghai.aliyuncs.com/vpnbook/github:latest
 ```
 
 ## 开源文章
